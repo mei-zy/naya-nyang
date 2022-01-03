@@ -38,3 +38,7 @@ const fetchCats = () => {
 };
 
 const generateId = () => Math.max(...cats.map(todo => todo.id), 0) + 1;
+
+const addCats = cat => {
+  cats = [cat, ...cats];
+};
