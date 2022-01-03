@@ -1,5 +1,9 @@
 let cats = [];
 
+const setCats = _cats => {
+  cats = _cats;
+};
+
 const fetchCats = () => {
   cats = [
     {
