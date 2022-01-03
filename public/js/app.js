@@ -42,3 +42,7 @@ const generateId = () => Math.max(...cats.map(todo => todo.id), 0) + 1;
 const addCats = cat => {
   cats = [cat, ...cats];
 };
+
+const toggleLiked = id => {
+  cats = cats.map(cat => (cat.id === +id ? { ...cat, liked: !cat.liked } : cat));
+};
