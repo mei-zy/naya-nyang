@@ -46,3 +46,7 @@ const addCats = cat => {
 const toggleLiked = id => {
   cats = cats.map(cat => (cat.id === +id ? { ...cat, liked: !cat.liked } : cat));
 };
+
+const removeCats = id => {
+  cats = cats.filter(cat => cat.id !== +id);
+};
