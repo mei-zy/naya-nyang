@@ -19,7 +19,8 @@ body {
   display: none;
 }
 .header {
-  height: 150px;
+  margin-top: 67px;
+  margin-right: 50px;
 }
 .btn {
   border: none;
@@ -28,14 +29,18 @@ body {
 
 .title {
   color: white;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 3rem;
+  font-family: 'MaplestoryOTFBold', sans-serif;
+  text-align: right;
+  margin: 10px;
 }
 
 .main-container {
   background-color: white;
-  width: 80vw;
-  border-radius: 30px;
+  margin: 0 40px;
+  border-radius: 20px;
+  height: 100vh;
+  box-shadow: -1px -1px 5px rgba(60, 61, 61, 0.2);
 }
 
 /* 하단 부분 */
