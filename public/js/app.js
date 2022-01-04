@@ -8,10 +8,19 @@ const render = () => {
       ({ id, url, liked, hashtags, content }) => `
       <li>
         <div data-id="${id}" class="card">
-          <button class="edit-post">수정</button>
-          <img src="${url}" alt="고양이">
+          <div class="edit-container">
+            <button class="btn edit-post">
+              <i class="far fa-edit"></i> 
+            </button>
+            <button class="btn delete-post">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+          <div class="img-container">
+            <img src="${url}" class="post-img" alt="고양이">
+          </div>
           <button class="like" title="좋아요 누르기">
-            <i class="${liked ? 'fas fa-heart' : 'far fa-heart'}"></i>
+            <i class="${liked ? 'fas fa-heart fa-2x' : 'far fa-heart fa-2x'}"></i>
           </button>
           <div class="hash-list">
             ${hashtags.map(hashtag => `<span>${hashtag}</span>`).join('')}
