@@ -1,0 +1,32 @@
+
+@import url('./reset.css');
+
+
+body{
+	background-color: #ECBB51;
+}
+
+.header{
+	height: 150px;
+}
+
+.title{
+	color:white;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.main-container{
+	background-color: white;
+	margin: auto;
+}
+
+.menu {
+	background-color: #FFF9EA;
+	position: fixed;
+	bottom: 0;
+}
+
+.hidden {
+	display: none;
+}
