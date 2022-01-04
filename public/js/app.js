@@ -1,52 +1,72 @@
+const $catsList = document.querySelector('.cats-list');
+
 let cats = [];
+
+const render = () => {
+  $catsList.innerHTML = cats
+    .map(
+      ({ id, url, liked, hashtags, content }) => `
+      <li>
+        <div data-id="${id}" class="card">
+          <button class="edit-post">수정</button>
+          <img src="${url}" alt="고양이">
+          <button class="like" title="좋아요 누르기">
+            <i class="${liked ? 'fas fa-heart' : 'far fa-heart'}"></i>
+          </button>
+          <div class="hash-list">
+            ${hashtags.map(hashtag => `<span>${hashtag}</span>`).join('')}
+          </div>
+          <p class="comment">${content}</p>
+        </div>
+      </li>
+    `
+    )
+    .join('');
+};
 
 const setCats = _cats => {
   cats = _cats;
+  render();
 };
 
-const fetchCats = () => {
-  cats = [
-    {
-      id: 1,
-      url: 'img/image01.jpeg',
-      content: '고양이는 귀엽다',
-      liked: true,
-      hashtag: ['고양이', '귀엽다', '냥스타그램'],
-    },
-    {
-      id: 2,
-      url: 'img/image02.jpeg',
-      content: '고양이는 귀엽다',
-      liked: false,
-      hashtag: ['고양이', '귀엽다', '냥스타그램'],
-    },
-    {
-      id: 3,
-      url: 'img/image03.jpeg',
-      content: '고양이는 귀엽다',
-      liked: true,
-      hashtag: ['고양이', '귀엽다', '냥스타그램'],
-    },
-    {
-      id: 4,
-      url: 'img/image04.jpeg',
-      content: '고양이는 귀엽다',
-      liked: false,
-      hashtag: ['고양이', '귀엽다', '냥스타그램'],
-    },
-  ];
+const fetchCats = async () => {
+  try {
+    const { data: cats } = await axios.get('/cats');
+    setCats(cats);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 const generateId = () => Math.max(...cats.map(todo => todo.id), 0) + 1;
 
-const addCats = cat => {
-  cats = [cat, ...cats];
+const addCats = async cat => {
+  try {
+    const { data: cats } = await axios.post('/cats', { id: generateId(), cat });
+    setCats(cats);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
-const toggleLiked = id => {
-  cats = cats.map(cat => (cat.id === +id ? { ...cat, liked: !cat.liked } : cat));
+const toggleLiked = async id => {
+  const { liked } = cats.find(cat => cat.id === +id);
+
+  try {
+    const { data: cats } = await axios.post(`/cats/${id}`, { liked: !liked });
+    setCats(cats);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
-const removeCats = id => {
-  cats = cats.filter(cat => cat.id !== +id);
+const removeCats = async id => {
+  try {
+    const { data: cats } = await axios.delete(`/cats/${id}`);
+    setCats(cats);
+  } catch (e) {
+    console.error(e);
+  }
 };
+
+window.addEventListener('DOMContentLoaded', fetchCats);
