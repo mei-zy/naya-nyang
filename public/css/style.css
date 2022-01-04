@@ -43,6 +43,10 @@ body {
   box-shadow: -1px -1px 5px rgba(60, 61, 61, 0.2);
 }
 
+.fas.fa-heart {
+  color: red;
+}
+
 /* 하단 부분 */
 .menu {
   background-color: #fff9ea;
