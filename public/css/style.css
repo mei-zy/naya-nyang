@@ -30,3 +30,90 @@ body{
 .hidden {
 	display: none;
 }
+
+.post-modal{
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	padding: 3%;
+	width: 30vw;
+	height: 60vh;
+	transform: translateX(-50%);
+	background-color: white;
+	border-radius: 30px;
+}
+.post-modal h2{
+	font-weight: bold;
+	font-size: 2rem;
+	margin-bottom: 10%;
+}
+
+.close-modal{
+	position: absolute;
+	top:5%;
+	right:5%;
+	border: none;
+	background-color: transparent;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+.upload-file{
+	margin-bottom: 5%;
+}
+
+
+.uploaded-image{
+	margin: auto;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	margin-bottom: 10%;
+}
+
+.uploaded-image img{
+	width: 100%;
+	height: 100%;
+}
+
+.post-modal label{
+	display: block;
+}
+
+
+
+
+
+#tag{
+	outline: none;
+	border: none;
+	width: 100%;
+	font-size: 1.2rem;
+	margin-bottom: 3%;
+}
+
+#tag:focus{
+	border-bottom: 1px solid black;
+}
+
+
+.post-modal .description{
+	border: 1px solid #C4C4C4;
+	margin-bottom: 5%;
+	width: 100%;
+	height: 5vh;
+	overflow: hidden;
+}
+
+.submit-btn{
+	background-color: #ECBB51;
+	border: none;
+	padding: 5%;
+	width: 100%;
+	color:white;
+	text-align: center;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+
