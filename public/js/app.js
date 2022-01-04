@@ -53,7 +53,7 @@ const toggleLiked = async id => {
   const { liked } = cats.find(cat => cat.id === +id);
 
   try {
-    const { data: cats } = await axios.post(`/cats/${id}`, { liked: !liked });
+    const { data: cats } = await axios.patch(`/cats/${id}`, { liked: !liked });
     setCats(cats);
   } catch (e) {
     console.error(e);
@@ -70,3 +70,10 @@ const removeCats = async id => {
 };
 
 window.addEventListener('DOMContentLoaded', fetchCats);
+
+$catsList.onclick = ({ target }) => {
+  if (!target.matches('.like, .like *')) return;
+
+  const { id } = target.closest('.card').dataset;
+  toggleLiked(id);
+};
