@@ -1,32 +1,30 @@
-
 @import url('./reset.css');
 
-
-body{
-	background-color: #ECBB51;
+body {
+  background-color: #ecbb51;
 }
 
-.header{
-	height: 150px;
+.header {
+  height: 150px;
 }
 
-.title{
-	color:white;
-	font-size: 2rem;
-	font-weight: bold;
+.title {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.main-container{
-	background-color: white;
-	margin: auto;
+.main-container {
+  background-color: white;
+  margin: auto;
 }
 
 .menu {
-	background-color: #FFF9EA;
-	position: fixed;
-	bottom: 0;
+  background-color: #fff9ea;
+  position: fixed;
+  bottom: 0;
 }
 
 .hidden {
-	display: none;
+  display: none;
 }
