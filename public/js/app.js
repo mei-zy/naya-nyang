@@ -1,19 +1,24 @@
-const $homeContainer = document.querySelector('.home-container');
+const $catsList = document.querySelector('.cats-list');
 
 let cats = [];
 
 const render = () => {
-  $homeContainer.innerHTML = cats
+  $catsList.innerHTML = cats
     .map(
       ({ id, url, liked, hashtags, content }) => `
-    <div data-id="${id}" class="card">
-      <img src="${url}" alt="고양이">
-      <button class="like"><i></i></button>
-      <div class="hash-list">
-        ${hashtags.map(hashtag => `<span>${hashtag}</span>`).join('')}
-      </div>
-      <p class="comment">${content}</p>
-    </div>
+      <li>
+        <div data-id="${id}" class="card">
+          <button class="edit-post">수정</button>
+          <img src="${url}" alt="고양이">
+          <button class="like" title="좋아요 누르기">
+            <i class="${liked ? 'fas fa-heart' : 'far fa-heart'}"></i>
+          </button>
+          <div class="hash-list">
+            ${hashtags.map(hashtag => `<span>${hashtag}</span>`).join('')}
+          </div>
+          <p class="comment">${content}</p>
+        </div>
+      </li>
     `
     )
     .join('');
