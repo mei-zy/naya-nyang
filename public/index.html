@@ -22,28 +22,30 @@
       <!-- 하단 메뉴바 -->
       <div class="logo-container">
         <a href="#">
-          <img src="#" alt="나야냥 로고" />
+          <img src="./img/logo/logo.png" class="logo-img" alt="나야냥 로고" />
         </a>
         <div class="team-info">
-          <span>TEAM</span>
-          <!-- after 꼭 넣어주기  -->
-          <span>나야냥</span>
-        </div>
-        <div class="team-info">
-          <span>DEVELOPER</span>
-          <span>여은성 최한나 박민지 박상언</span>
+          <div>
+            <span class="info-title">TEAM</span>
+            <!-- after 꼭 넣어주기  -->
+            <span>나야냥</span>
+          </div>
+          <div>
+            <span class="info-title">DEVELOPER</span>
+            <span>여은성 최한나 박민지 박상언</span>
+          </div>
         </div>
       </div>
 
       <div class="btn-container">
-        <button class="home" title="홈">
-          <i class="fas fa-home"></i>
+        <button class="btn nav-btn home" title="홈">
+          <i class="fas fa-home fa-3x"></i>
         </button>
-        <button class="post" title="게시물 업로드">
-          <i class="fas fa-caret-square-up"></i>
+        <button class="btn nav-btn post" title="게시물 업로드">
+          <i class="fas fa-caret-square-up fa-3x"></i>
         </button>
-        <button class="like-list" title="좋아요 목록">
-          <i class="fas fa-stream"></i>
+        <button class="btn nav-btn like-list" title="좋아요 목록">
+          <i class="fas fa-stream fa-3x"></i>
         </button>
       </div>
     </nav>
@@ -53,21 +55,22 @@
         <!-- 메인화면 -->
         <h2>주변 집사들의 고양이를 둘러 보세요</h2>
         <!-- 동적으로 추가될 영역 -->
-        <div class="card">
-          <button class="edit-post">수정</button>
-          <img src="#" alt="고양이" />
-          <button class="like" title="좋아요 누르기">
-            <!-- 좋아요 클릭시 -->
-            <i style="color: red" class="fas fa-heart"></i>
-            <!-- 좋아요 해제시 -->
-            <i class="far fa-heart"></i>
-          </button>
-          <div class="hash-list">
-            <span>해시태그1</span>
-            <span>해시태그2</span>
-          </div>
-          <p class="comment">우리 고양이 아구 귀여워</p>
-        </div>
+        <ul class="cats-list">
+          <li>
+            <!-- <div class="card">
+              <button class="edit-post">수정</button>
+              <img src="#" alt="고양이" />
+              <button class="like" title="좋아요 누르기">
+                <i class="far fa-heart"></i>
+              </button>
+              <div class="hash-list">
+                <span>해시태그1</span>
+                <span>해시태그2</span>
+              </div>
+              <p class="comment">우리 고양이 아구 귀여워</p>
+            </div> -->
+          </li>
+        </ul>
       </section>
       <section class="like-container hidden">
         <h2>내가 좋아하는 고양이들</h2>
