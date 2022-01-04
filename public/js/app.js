@@ -3,6 +3,8 @@ const $postButton = document.querySelector('.btn.post');
 const $postModal = document.querySelector('.post-modal');
 const $postForm = document.querySelector('.post-form');
 const $closeModal = document.querySelector('.close-modal');
+const $inputFile = document.getElementById('upload');
+const $description = document.querySelector('.description');
 
 let cats = [];
 
@@ -86,15 +88,38 @@ $postButton.onclick = e => {
   $postModal.classList.remove('hidden');
 };
 
-$closeModal.onclick = e => {
-  $postModal.classList.add('hidden');
+const closeModal = e => {
   e.preventDefault();
+  $postModal.classList.add('hidden');
 };
 
-$postForm.onsubmit = e => {
+$closeModal.onclick = closeModal;
+
+$postForm.onsubmit = async e => {
   e.preventDefault();
-  const tempUrl = 'img/image01.jpeg';
+
+  const uploadedFile = $inputFile.files[0];
+  const formData = new FormData();
+  formData.append('img', uploadedFile);
+
+  const res = await fetch('/upload', {
+    method: 'POST',
+    // headers: { 'Content-Type': 'multipart/form-data' },
+    // body: JSON.stringify(formData)
+    body: formData,
+  });
+  const { success, file } = await res.json();
+
+  if (success) {
+    console.log('UPLOAD SUCCESS!', file);
+  }
+
+  const url = `/img/${file.originalname}`;
   const tempHashtags = ['고양이', '임시', '냥스타그램'];
-  const content = e.target.querySelector('.description').textContent;
-  addCats(tempUrl, tempHashtags, content);
+  const content = $description.textContent;
+  $description.textContent = '';
+
+  $postForm.reset();
+  closeModal(e);
+  addCats(url, tempHashtags, content);
 };
