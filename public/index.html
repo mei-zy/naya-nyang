@@ -4,79 +4,93 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous" />
     <title>냥스타그램</title>
   </head>
   <body>
     <h1 class="title">NYANGSTAGRAM</h1>
-		<nav class="menu">
-			<!-- 하단 메뉴바 -->
+    <nav class="menu">
+      <!-- 하단 메뉴바 -->
       <div class="logo-container">
         <a href="#">
-          <img src="#" alt="나야냥 로고">
+          <img src="#" alt="나야냥 로고" />
         </a>
         <div class="team-info">
           <span>TEAM</span>
           <!-- after 꼭 넣어주기  -->
-					<span>나야냥</span>
+          <span>나야냥</span>
         </div>
         <div class="team-info">
           <span>DEVELOPER</span>
           <span>여은성 최한나 박민지 박상언</span>
         </div>
       </div>
-      
-      <div class="btn-container">
-				<button class="home"><i></i></button>
-				<button class="post"><i></i></button>
-				<button class="like-list"><i></i></button>
-      </div>
-		</nav>
-    
-		<div class="main-container">
 
-			<section class="home-container">
-				<!-- 메인화면 -->
-				<h2>주변 집사들의 고양이를 둘러 보세요</h2>
-				<!-- 동적으로 추가될 영역 -->
-				<div class="card">
-					<img src="#" alt="고양이">
-					<button class="like"><i></i></button>
-					<div class="hash-list">
-						<span>해시태그1</span>
+      <div class="btn-container">
+        <button class="home" title="홈">
+          <i class="fas fa-home"></i>
+        </button>
+        <button class="post" title="게시물 업로드">
+          <i class="fas fa-caret-square-up"></i>
+        </button>
+        <button class="like-list" title="좋아요 목록">
+          <i class="fas fa-stream"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="main-container">
+      <section class="home-container">
+        <!-- 메인화면 -->
+        <h2>주변 집사들의 고양이를 둘러 보세요</h2>
+        <!-- 동적으로 추가될 영역 -->
+        <div class="card">
+          <button class="edit-post">수정</button>
+          <img src="#" alt="고양이" />
+          <button class="like" title="좋아요 누르기">
+            <!-- 좋아요 클릭시 -->
+            <i style="color: red" class="fas fa-heart"></i>
+            <!-- 좋아요 해제시 -->
+            <i class="far fa-heart"></i>
+          </button>
+          <div class="hash-list">
+            <span>해시태그1</span>
             <span>해시태그2</span>
-					</div>
-					<p class="comment">우리 고양이 아구 귀여워</p>
-				</div>
-				
-				
-			</section>
-			<section class="like-container hidden">
-				<h2>내가 좋아하는 고양이들</h2>
-				<!-- 좋아한 리스트  -->
-			</section>
-			<section class="post-modal hidden">
+          </div>
+          <p class="comment">우리 고양이 아구 귀여워</p>
+        </div>
+      </section>
+      <section class="like-container hidden">
+        <h2>내가 좋아하는 고양이들</h2>
+        <!-- 좋아한 리스트  -->
+      </section>
+      <section class="post-modal hidden">
         <h2>고양이 사진 추가</h2>
 
         <form action="#" method="post" class="post-form">
-					<fieldset>
-						<legend class="hidden">고양이 정보 폼</legend>
-            <button class="close-modal">
+          <fieldset>
+            <legend class="hidden">고양이 정보 폼</legend>
+
+            <button class="close-modal" title="모달창 닫기">
+              <i class="fas fa-times"></i>
             </button>
+            <!-- 세개 -->
             <input class="input-file" type="file" accept="image/*" />
-            <button class="upload"><i></i></button>
+            <button class="upload">업로드</button>
             <img class="uploaded-image" alt="이미지 업로드" />
-  
-            <label for="tag">            
-              <input type="text" id="tag" placeholder="해시태그를 입력하세요">
+
+            <label for="tag">
+              <input type="text" id="tag" placeholder="해시태그를 입력하세요" />
             </label>
-						<p role="textbox" class="description" contenteditable="true" aria-multiline="true"></p>
-            <button type="submit" class="submint-btn"><i></i></button>
+            <p role="textbox" class="description" contenteditable="true" aria-multiline="true"></p>
+            <button type="submit" class="submint-btn">게시</button>
           </fieldset>
-
         </form>
-			</section>
-
-		</div>
+      </section>
+    </div>
   </body>
 </html>
