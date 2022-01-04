@@ -1,4 +1,8 @@
 const $catsList = document.querySelector('.cats-list');
+const $postButton = document.querySelector('.btn.post');
+const $postModal = document.querySelector('.post-modal');
+const $postForm = document.querySelector('.post-form');
+const $closeModal = document.querySelector('.close-modal');
 
 let cats = [];
 
@@ -40,9 +44,9 @@ const fetchCats = async () => {
 
 const generateId = () => Math.max(...cats.map(todo => todo.id), 0) + 1;
 
-const addCats = async cat => {
+const addCats = async (url, hashtags, content) => {
   try {
-    const { data: cats } = await axios.post('/cats', { id: generateId(), cat });
+    const { data: cats } = await axios.post('/cats', { id: generateId(), url, hashtags, content, liked: false });
     setCats(cats);
   } catch (e) {
     console.error(e);
@@ -76,4 +80,21 @@ $catsList.onclick = ({ target }) => {
 
   const { id } = target.closest('.card').dataset;
   toggleLiked(id);
+};
+
+$postButton.onclick = e => {
+  $postModal.classList.remove('hidden');
+};
+
+$closeModal.onclick = e => {
+  $postModal.classList.add('hidden');
+  e.preventDefault();
+};
+
+$postForm.onsubmit = e => {
+  e.preventDefault();
+  const tempUrl = 'img/image01.jpeg';
+  const tempHashtags = ['고양이', '임시', '냥스타그램'];
+  const content = e.target.querySelector('.description').textContent;
+  addCats(tempUrl, tempHashtags, content);
 };
