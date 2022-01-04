@@ -87,10 +87,16 @@ const removeCats = async id => {
 window.addEventListener('DOMContentLoaded', fetchCats);
 
 $catsList.onclick = ({ target }) => {
-  if (!target.matches('.like, .like *')) return;
-
+  if (!target.matches('.card *')) return;
   const { id } = target.closest('.card').dataset;
-  toggleLiked(id);
+
+  if (target.matches('.delete-post, .delete-post *')) {
+    removeCats(id);
+  }
+
+  if (target.matches('.like, .like *')) {
+    toggleLiked(id);
+  }
 };
 
 $postButton.onclick = e => {
