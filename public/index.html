@@ -59,19 +59,18 @@
         <h2>고양이 사진 추가</h2>
 
         <form action="#" method="post" class="post-form">
-					<legend class="hidden">고양이 정보 폼</legend>
-          
-          <fieldset>
+					<fieldset>
+						<legend class="hidden">고양이 정보 폼</legend>
             <button class="close-modal">
             </button>
             <input class="input-file" type="file" accept="image/*" />
             <button class="upload"><i></i></button>
-            <img class="uploaded-image" />
+            <img class="uploaded-image" alt="이미지 업로드" />
   
             <label for="tag">            
               <input type="text" id="tag" placeholder="해시태그를 입력하세요">
             </label>
-						<p class="description" contenteditable="true" aria-multiline="true"></p>
+						<p role="textbox" class="description" contenteditable="true" aria-multiline="true"></p>
             <button type="submit" class="submint-btn"><i></i></button>
           </fieldset>
 
