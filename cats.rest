@@ -1,0 +1,34 @@
+# GET / POST / PUT / DELETE 
+
+GET http://localhost:9000/cats
+
+###
+POST http://localhost:9000/cats
+content-type: application/json
+
+{
+  "id": 5, "url": "img/image00.jpeg", "content": "갓냥이", "liked": false, "hashtag": ["고양이", "귀엽다", "냥스타그램"]
+}
+
+###
+PATCH http://localhost:9000/cats/1
+content-type: application/json
+
+{
+  "liked": true
+}
+
+###
+PATCH http://localhost:9000/cats/1
+content-type: application/json
+
+{
+  "url": "img/image02.jpeg",
+  "content": "냐야-냥",
+  "hashtag": ["고양이2", "귀엽다2", "냥스타그램2"]
+}
+
+###
+DELETE http://localhost:9000/cats/3
+
+
