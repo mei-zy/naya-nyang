@@ -19,12 +19,22 @@ body {
   display: none;
 }
 .header {
-  margin-top: 67px;
   margin-right: 50px;
 }
 .btn {
   border: none;
   background: transparent;
+}
+.cat-pattern-container {
+  padding-left: 60px;
+}
+.cat-pattern {
+  display: inline-block;
+  width: 30px;
+  height: 70px;
+  background-color: white;
+  border-radius: 0 0 30px 30px;
+  margin: 0 10px 0 10px;
 }
 
 .title {
@@ -112,9 +122,14 @@ h2 {
 .logo-img {
   width: 180px;
 }
+
+.info-container {
+  margin: 8px 0;
+}
 .info-title {
   font-family: 'MaplestoryOTFBold', sans-serif;
 }
+
 .info-title::after {
   content: ' |';
 }
