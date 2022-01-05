@@ -41,7 +41,7 @@
 
 ## ⛑ 기능 소개
 
-![](https://images.velog.io/images/mingsomm/post/e74b85a5-7db0-4c07-8051-012a4b746eaa/003.png)![](https://images.velog.io/images/mingsomm/post/e6ce78c7-e810-4b36-881f-55899413af15/004.png)![](https://images.velog.io/images/mingsomm/post/ccad0a55-8180-4245-a9a8-5ce5ab8785f7/005.png)
+![](https://images.velog.io/images/mingsomm/post/f65c476f-fcd0-418d-a36a-3700701c6adb/003.png)![](https://images.velog.io/images/mingsomm/post/80a819e9-22cc-442f-ab2d-9d7806a82b87/004.png)![](https://images.velog.io/images/mingsomm/post/d63439a5-3d24-46d3-afbd-676e2527d07b/005.png)
 
 ## 👀 사용언어 및 기술
 
