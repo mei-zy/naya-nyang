@@ -129,6 +129,7 @@ h2 {
 .info-title {
   font-family: 'MaplestoryOTFBold', sans-serif;
 }
+
 .info-title::after {
   content: ' |';
 }
@@ -148,6 +149,7 @@ h2 {
   display: none;
 }
 
+/* 모달부분 */
 .post-modal {
   position: absolute;
   /* top: 10%; */
