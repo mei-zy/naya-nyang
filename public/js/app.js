@@ -9,6 +9,7 @@ const $editInputFile = document.querySelector('.edit-modal #upload');
 const $postDescription = document.querySelector('.post-modal .description');
 const $editDescription = document.querySelector('.edit-modal .description');
 const $btnContainer = document.querySelector('.btn-container');
+const $postInputHashtag = document.querySelector('.post-modal #tag');
 
 let cats = [];
 let currentFilter = 'all';
@@ -155,10 +156,10 @@ $closeModals.forEach(closeButton => {
   closeButton.onclick = closeModal;
 });
 
-$postInputFile.onchange = e => {
-  const uploadedFile = $postInputFile.files[0];
-  console.log(uploadedFile.mozFullPath);
-};
+// $postInputFile.onchange = e => {
+//   const uploadedFile = $postInputFile.files[0];
+//   console.log(uploadedFile.mozFullPath);
+// };아
 
 $postForm.onsubmit = async e => {
   e.preventDefault();
