@@ -39,9 +39,15 @@
 
 <a href="https://www.figma.com/file/btLCfO4Y572HjWFEFVNbk9/Untitled?node-id=15%3A2" target="_blank">figma 시안 </a>
 
+## 👾 REST API
+
+![](https://images.velog.io/images/mingsomm/post/887f6add-3d8a-45c4-9ed6-a6f00dd3df30/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2021.31.15.png)![](https://images.velog.io/images/mingsomm/post/690254f1-f6e7-4c01-9966-a83e32bf4420/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2021.31.31.png)
+
+![](https://images.velog.io/images/mingsomm/post/aaf278f5-eb03-4588-9963-bca15854c94d/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2021.31.36.png)![](https://images.velog.io/images/mingsomm/post/13ca40ca-581c-4649-b3e2-09b15972d2fb/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2021.31.42.png)
+
 ## ⛑ 기능 소개
 
-![](https://images.velog.io/images/mingsomm/post/e74b85a5-7db0-4c07-8051-012a4b746eaa/003.png)![](https://images.velog.io/images/mingsomm/post/e6ce78c7-e810-4b36-881f-55899413af15/004.png)![](https://images.velog.io/images/mingsomm/post/ccad0a55-8180-4245-a9a8-5ce5ab8785f7/005.png)
+![](https://images.velog.io/images/mingsomm/post/f65c476f-fcd0-418d-a36a-3700701c6adb/003.png)![](https://images.velog.io/images/mingsomm/post/80a819e9-22cc-442f-ab2d-9d7806a82b87/004.png)![](https://images.velog.io/images/mingsomm/post/d63439a5-3d24-46d3-afbd-676e2527d07b/005.png)
 
 ## 👀 사용언어 및 기술
 
