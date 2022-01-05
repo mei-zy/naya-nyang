@@ -33,9 +33,9 @@
 
 ## 👌 기초 figma 시안
 
-![](https://images.velog.io/images/mingsomm/post/e0caf9fe-0b81-45e1-80fd-1b7a8a371887/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2013.27.22.png)
+![](https://images.velog.io/images/mingsomm/post/45926d54-1c93-43b2-b5a7-73c0057f26ab/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2016.02.14.png)
 
-![](https://images.velog.io/images/mingsomm/post/0a1cdab3-3a1b-4fea-a76f-37199eb25bc2/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2015.15.02.png)
+![](https://images.velog.io/images/mingsomm/post/5ab274c6-1e4e-44a0-bfb7-97f64b60a4f7/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2016.02.22.png)
 
 <a href="https://www.figma.com/file/btLCfO4Y572HjWFEFVNbk9/Untitled?node-id=15%3A2" target="_blank">figma 시안 </a>
 
