@@ -134,7 +134,7 @@ h2 {
   display: none;
 }
 
-.post-modal {
+.modal {
   position: absolute;
   /* top: 10%; */
   top: 20px;
@@ -147,7 +147,7 @@ h2 {
   box-shadow: -1px -1px 5px rgba(60, 61, 61, 0.2);
   border-radius: 30px;
 }
-.post-modal h2 {
+.modal h2 {
   font-weight: bold;
   font-size: 2rem;
   margin-bottom: 3%;
@@ -180,7 +180,7 @@ h2 {
   height: 100%;
 }
 
-.post-modal label {
+.modal label {
   display: block;
   overflow: hidden;
 }
@@ -200,7 +200,7 @@ h2 {
   border-bottom: 1px solid black;
 }
 
-.post-modal .description {
+.modal .description {
   border: 1px solid #c4c4c4;
   margin-bottom: 3%;
   width: 100%;
