@@ -78,6 +78,33 @@
         </ul>
       </section>
 
+      <section class="modal post-modal hidden">
+        <h2>고양이 사진 추가</h2>
+
+        <form action="#" method="post" class="post-form">
+          <fieldset>
+            <legend class="hidden">고양이 정보 폼</legend>
+            <button class="close-modal" title="모달창 닫기">
+              <i class="fas fa-times"></i>
+            </button>
+            <!-- 세개 -->
+            <div class="upload-file">
+              <input id="upload" type="file" accept="image/*" />
+            </div>
+            <div class="uploaded-image">
+              <img src="img/image_blank.jpg" alt="업로드한 이미지" />
+            </div>
+            <div class="hashtags">
+              <label for="tag">
+                <input type="text" id="tag" placeholder="해시태그를 입력하세요" />
+              </label>
+            </div>
+            <p role="textbox" class="description" contenteditable="true" aria-multiline="true"></p>
+            <button type="submit" class="submit-btn">게시</button>
+          </fieldset>
+        </form>
+      </section>
+
       <section class="modal edit-modal hidden">
         <h2>고양이 사진 수정</h2>
 
@@ -99,31 +126,6 @@
             </label>
             <p role="textbox" class="description" contenteditable="true" aria-multiline="true"></p>
             <button type="submit" class="submit-btn">수정</button>
-          </fieldset>
-        </form>
-      </section>
-
-      <section class="modal post-modal hidden">
-        <h2>고양이 사진 추가</h2>
-
-        <form action="#" method="post" class="post-form">
-          <fieldset>
-            <legend class="hidden">고양이 정보 폼</legend>
-            <button class="close-modal" title="모달창 닫기">
-              <i class="fas fa-times"></i>
-            </button>
-            <!-- 세개 -->
-            <div class="upload-file">
-              <input id="upload" type="file" accept="image/*" />
-            </div>
-            <div class="uploaded-image">
-              <img src="img/image_blank.jpg" alt="업로드한 이미지" />
-            </div>
-            <label for="tag">
-              <input type="text" id="tag" placeholder="해시태그를 입력하세요" />
-            </label>
-            <p role="textbox" class="description" contenteditable="true" aria-multiline="true"></p>
-            <button type="submit" class="submit-btn">게시</button>
           </fieldset>
         </form>
       </section>
