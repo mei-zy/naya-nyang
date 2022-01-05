@@ -8,6 +8,7 @@ const $postInputFile = document.querySelector('.post-modal #upload');
 const $editInputFile = document.querySelector('.edit-modal #upload');
 const $postDescription = document.querySelector('.post-modal .description');
 const $editDescription = document.querySelector('.edit-modal .description');
+const $btnContainer = document.querySelector('.btn-container');
 
 let cats = [];
 let currentFilter = 'all';
@@ -146,6 +147,8 @@ $btnContainer.onclick = e => {
 const closeModal = e => {
   e.preventDefault();
   e.target.closest('.modal').classList.add('hidden');
+  e.target.closest('form').reset();
+  e.target.closest('form').querySelector('.description').textContent = '';
 };
 
 $closeModals.forEach(closeButton => {
@@ -154,7 +157,7 @@ $closeModals.forEach(closeButton => {
 
 $postInputFile.onchange = e => {
   const uploadedFile = $postInputFile.files[0];
-  console.log(uploadedFile);
+  console.log(uploadedFile.mozFullPath);
 };
 
 $postForm.onsubmit = async e => {
@@ -180,8 +183,6 @@ $postForm.onsubmit = async e => {
   const tempHashtags = ['고양이', '임시', '냥스타그램'];
   const content = $postDescription.textContent;
 
-  $postForm.reset();
-  $postDescription.textContent = '';
   closeModal(e);
   addCats(url, tempHashtags, content);
 };
