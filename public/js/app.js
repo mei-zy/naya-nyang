@@ -1,15 +1,18 @@
 const $catsList = document.querySelector('.cats-list');
-const $postButton = document.querySelector('.btn.post');
 const $postModal = document.querySelector('.post-modal');
 const $postForm = document.querySelector('.post-form');
 const $closeModal = document.querySelector('.close-modal');
 const $inputFile = document.getElementById('upload');
 const $description = document.querySelector('.description');
+const $btnContainer = document.querySelector('.btn-container');
 
 let cats = [];
+let currentFilter = 'all';
 
 const render = () => {
-  $catsList.innerHTML = cats
+  const _cats = cats.filter(({ liked }) => (currentFilter === 'all' ? true : liked));
+
+  $catsList.innerHTML = _cats
     .map(
       ({ id, url, liked, hashtags, content }) => `
       <li>
@@ -57,7 +60,13 @@ const generateId = () => Math.max(...cats.map(todo => todo.id), 0) + 1;
 
 const addCats = async (url, hashtags, content) => {
   try {
-    const { data: cats } = await axios.post('/cats', { id: generateId(), url, hashtags, content, liked: false });
+    const { data: cats } = await axios.post('/cats', {
+      id: generateId(),
+      url,
+      hashtags,
+      content,
+      liked: false,
+    });
     setCats(cats);
   } catch (e) {
     console.error(e);
@@ -99,8 +108,12 @@ $catsList.onclick = ({ target }) => {
   }
 };
 
-$postButton.onclick = e => {
-  $postModal.classList.remove('hidden');
+$btnContainer.onclick = e => {
+  if (e.target.matches('.post')) $postModal.classList.remove('hidden');
+  else {
+    currentFilter = e.target.matches('.home') ? 'all' : 'liked';
+    render();
+  }
 };
 
 const closeModal = e => {
