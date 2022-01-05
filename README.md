@@ -7,9 +7,6 @@
 
 1월 4일(화) ~ 1월 7일(금)
 
-## 👌 기초 figma 시안
-![](https://images.velog.io/images/mingsomm/post/e0caf9fe-0b81-45e1-80fd-1b7a8a371887/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2013.27.22.png)
-
 ## ✨ 프로젝트 소개
 
 **“ 나만 없어 고양이 .. ! “**
@@ -27,13 +24,24 @@
 
 ![](https://images.velog.io/images/mingsomm/post/de9f5d16-37ff-4bed-b20b-2640c9a4cb35/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-04%2023.52.29.png)
 
-> 
 **프로젝트 기능 소개 😲**
 
 - 이미지 업로드 (해시태그 및 코멘트 작성)을 통한 포스팅🤝
 - 포스팅 관리 (수정 및 삭제)
 - `좋아요` 를 누를 수 있는 기능
 - `좋아요` 를 누른 리스트 모아보기
+
+## 👌 기초 figma 시안
+
+![](https://images.velog.io/images/mingsomm/post/e0caf9fe-0b81-45e1-80fd-1b7a8a371887/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2013.27.22.png)
+
+![](https://images.velog.io/images/mingsomm/post/0a1cdab3-3a1b-4fea-a76f-37199eb25bc2/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-05%2015.15.02.png)
+
+<a href="https://www.figma.com/file/btLCfO4Y572HjWFEFVNbk9/Untitled?node-id=15%3A2" target="_blank">figma 시안 </a>
+
+## ⛑ 기능 소개
+
+![](https://images.velog.io/images/mingsomm/post/e74b85a5-7db0-4c07-8051-012a4b746eaa/003.png)![](https://images.velog.io/images/mingsomm/post/e6ce78c7-e810-4b36-881f-55899413af15/004.png)![](https://images.velog.io/images/mingsomm/post/ccad0a55-8180-4245-a9a8-5ce5ab8785f7/005.png)
 
 ## 👀 사용언어 및 기술
 
