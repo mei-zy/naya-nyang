@@ -133,8 +133,9 @@ const hashtag = (() => {
     },
 
     add(newHashtag) {
-      if (hashtags.find(hash => hash === newHashtag.trim())) return;
-      hashtags = [...hashtags, newHashtag.trim()];
+      const trimmedHash = newHashtag.trim();
+      if (trimmedHash === '' || hashtags.find(hash => hash === trimmedHash)) return;
+      hashtags = [...hashtags, trimmedHash];
     },
   };
 })();
