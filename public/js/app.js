@@ -271,6 +271,7 @@ $postForm.onsubmit = async e => {
 
   closeModal(e);
   addCats(url, hashtags, content);
+  currentFilter = 'all';
 };
 
 $editForm.onsubmit = async e => {
