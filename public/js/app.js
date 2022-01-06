@@ -9,7 +9,7 @@ const $editInputFile = document.querySelector('.edit-modal #upload');
 const $postDescription = document.querySelector('.post-modal .description');
 const $editDescription = document.querySelector('.edit-modal .description');
 const $btnContainer = document.querySelector('.btn-container');
-const $postInputHashtag = document.querySelector('.post-modal #tag');
+const $inputHashtags = [...document.querySelectorAll('#tag')];
 
 let cats = [];
 let currentFilter = 'all';
@@ -112,13 +112,41 @@ const removeCats = async id => {
   }
 };
 
+const hashtag = (() => {
+  let hashtags = [];
+  return {
+    get() {
+      return hashtags;
+    },
+
+    set(inputHashtags) {
+      hashtags = [...inputHashtags];
+    },
+
+    reset() {
+      hashtags = [];
+    },
+
+    add(newHashtag) {
+      if (hashtags.find(hash => hash === newHashtag.trim())) return;
+      hashtags = [...hashtags, newHashtag.trim()];
+    },
+  };
+})();
+
 const showEditModal = id => {
   const { url, content, hashtags } = cats.find(cat => cat.id === +id);
   const $uploadedImage = $editModal.querySelector('.uploaded-image img');
+  const $hashtagsList = $editModal.querySelector('.hashtags-list');
+
+  $hashtagsList.innerHTML = hashtags.map(hashtag => `<li class="hashtags-item">${hashtag}</li>`).join('');
 
   $uploadedImage.src = url;
   $editDescription.textContent = content;
   $editModal.dataset.id = +id;
+
+  const { hashtags: editHashtags } = cats.find(cat => cat.id === +id);
+  hashtag.set(editHashtags);
 
   $editModal.classList.remove('hidden');
 };
@@ -155,6 +183,8 @@ const closeModal = e => {
   e.target.closest('.modal').classList.add('hidden');
   e.target.closest('form').reset();
   e.target.closest('form').querySelector('.description').textContent = '';
+  e.target.closest('form').querySelector('.hashtags-list').innerHTML = '';
+  hashtag.reset();
 };
 
 $closeModals.forEach(closeButton => {
@@ -186,11 +216,11 @@ $postForm.onsubmit = async e => {
   }
 
   const url = `/img/${file.originalname}`;
-  const tempHashtags = ['고양이', '임시', '냥스타그램'];
+  const hashtags = hashtag.get();
   const content = $postDescription.textContent;
 
   closeModal(e);
-  addCats(url, tempHashtags, content);
+  addCats(url, hashtags, content);
 };
 
 $editForm.onsubmit = async e => {
@@ -212,12 +242,27 @@ $editForm.onsubmit = async e => {
     console.log('UPLOAD SUCCESS!', file);
   }
 
-  const url = `/img/${file.originalname}`;
-  const tempHashtags = ['고양이', '임시', '냥스타그램'];
+  const { id } = e.target.closest('.modal').dataset;
+  const { url: prevUrl } = cats.find(cat => cat.id === +id);
+  const url = file ? `/img/${file.originalname}` : prevUrl;
   const content = $editDescription.textContent;
 
-  const { id } = e.target.closest('.modal').dataset;
-
+  const editHashtags = hashtag.get();
   closeModal(e);
-  editCats(id, url, tempHashtags, content);
+  editCats(id, url, editHashtags, content);
 };
+
+$inputHashtags.forEach($inputHash => {
+  $inputHash.onkeyup = e => {
+    if (e.code !== 'Space') return;
+    const $hashtagsList = e.target.closest('.modal').querySelector('.hashtags-list');
+
+    hashtag.add(e.target.value);
+    $hashtagsList.innerHTML = hashtag
+      .get()
+      .map(hash => `<li class="hashtags-item">${hash}</li>`)
+      .join('');
+
+    e.target.value = '';
+  };
+});
