@@ -232,6 +232,16 @@ h2 {
   border-bottom: 1px solid black;
 }
 
+/* 모달창 내 해시태그 */
+.hashtags-item {
+  color: #1c7cbe;
+  margin-bottom: 10px;
+}
+.hashtags-list ::before {
+  content: '\0023';
+  margin-left: 3px;
+}
+
 .modal .description {
   border: 1px solid #c4c4c4;
   margin-bottom: 3%;
