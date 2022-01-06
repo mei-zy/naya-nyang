@@ -17,25 +17,30 @@ let currentFilter = 'all';
 const render = () => {
   const _cats = cats.filter(({ liked }) => (currentFilter === 'all' ? true : liked));
 
+  const $slogan = document.querySelector('.slogan');
+  $slogan.textContent = currentFilter === 'all' ? '주변 집사들의 고양이를 둘러 보세요' : '내가 좋아하는 고양이들';
+
   $catsList.innerHTML = _cats
     .map(
       ({ id, url, liked, hashtags, content }) => `
       <li>
         <div data-id="${id}" class="card">
-          <div class="edit-container">
-            <button class="btn edit-post">
-              <i class="far fa-edit"></i> 
-            </button>
-            <button class="btn delete-post">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </div>
-          <div class="img-container">
-            <img src="${url}" class="post-img" alt="고양이">
-          </div>
+        <div class="img-container">
+        <img src="${url}" class="post-img" alt="고양이">
+        </div>
+        <div class="edit-container">
           <button class="like" title="좋아요 누르기">
             <i class="${liked ? 'fas fa-heart fa-2x' : 'far fa-heart fa-2x'}"></i>
           </button>
+          <div class="edit-del">
+            <button class="btn edit-post">
+              <i class="far fa-edit fa-lg"></i> 
+            </button>
+            <button class="btn delete-post">
+              <i class="fas fa-trash-alt fa-lg"></i>
+            </button>
+          </div>
+        </div>
           <div class="hash-list">
             ${hashtags.map(hashtag => `<span>${hashtag}</span>`).join('')}
           </div>
