@@ -71,9 +71,9 @@ h2 {
 }
 
 .edit-container {
-  /* float: right; */
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
+  margin-top: 7px;
 }
 .hash-list {
   margin: 10px 0;
@@ -84,7 +84,6 @@ h2 {
 .like {
   border: none;
   background: transparent;
-  margin-top: 10px;
 }
 .img-container {
   width: 100%;
@@ -99,6 +98,10 @@ h2 {
   height: 100%;
 }
 
+.edit-del {
+  display: inline;
+  margin-top: 5px;
+}
 /* 하단 부분 */
 .menu {
   background-color: #fff9ea;
