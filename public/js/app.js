@@ -9,7 +9,7 @@ const $editInputFile = document.querySelector('.edit-modal #upload');
 const $postDescription = document.querySelector('.post-modal .description');
 const $editDescription = document.querySelector('.edit-modal .description');
 const $btnContainer = document.querySelector('.btn-container');
-const $inputHashtags = [...document.querySelectorAll('#tag')];
+const $inputHashtags = [...document.querySelectorAll('input[type="text"]')];
 const $hashtagsLists = [...document.querySelectorAll('.hashtags-list')];
 
 let cats = [];
