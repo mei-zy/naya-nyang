@@ -17,6 +17,9 @@ let currentFilter = 'all';
 const render = () => {
   const _cats = cats.filter(({ liked }) => (currentFilter === 'all' ? true : liked));
 
+  const $slogan = document.querySelector('.slogan');
+  $slogan.textContent = currentFilter === 'all' ? '주변 집사들의 고양이를 둘러 보세요' : '내가 좋아하는 고양이들';
+
   $catsList.innerHTML = _cats
     .map(
       ({ id, url, liked, hashtags, content }) => `
