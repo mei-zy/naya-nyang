@@ -201,22 +201,20 @@ $closeModals.forEach(closeButton => {
   closeButton.onclick = closeModal;
 });
 
-const previewFile = e => {
-  const uploadedFile = e.target.files[0];
-  const $uploadedImage = e.target.closest('.modal').querySelector('.uploaded-image img');
-
-  const url = URL.createObjectURL(uploadedFile);
-  $uploadedImage.src = url;
-};
-
 $inputFiles.forEach($inputFile => {
-  $inputFile.onchange = previewFile;
+  $inputFile.onchange = ({ target }) => {
+    const uploadedFile = target.files[0];
+    const $uploadedImage = target.closest('.modal').querySelector('.uploaded-image img');
+
+    const url = URL.createObjectURL(uploadedFile);
+    $uploadedImage.src = url;
+  };
 });
 
 $postForm.onsubmit = async e => {
   e.preventDefault();
 
-  const uploadedFile = $postInputFile.files[0];
+  const uploadedFile = e.target.querySelector('.upload-file input').files[0];
   const formData = new FormData();
   formData.append('img', uploadedFile);
 
@@ -244,7 +242,7 @@ $postForm.onsubmit = async e => {
 $editForm.onsubmit = async e => {
   e.preventDefault();
 
-  const uploadedFile = $editInputFile.files[0];
+  const uploadedFile = e.target.querySelector('.upload-file input').files[0];
   const formData = new FormData();
   formData.append('img', uploadedFile);
 
@@ -284,15 +282,13 @@ $inputHashtags.forEach($inputHash => {
   };
 });
 
-const removeHashtag = e => {
-  const $hashtagsList = e.target.closest('.hashtags-list');
-  hashtag.remove(e.target.textContent);
-  $hashtagsList.innerHTML = hashtag
-    .get()
-    .map(hash => `<li class="hashtags-item">${hash}</li>`)
-    .join('');
-};
-
 $hashtagsLists.forEach(hashtagList => {
-  hashtagList.onclick = removeHashtag;
+  hashtagList.onclick = ({ target }) => {
+    const $hashtagsList = target.closest('.hashtags-list');
+    hashtag.remove(target.textContent);
+    $hashtagsList.innerHTML = hashtag
+      .get()
+      .map(hash => `<li class="hashtags-item">${hash}</li>`)
+      .join('');
+  };
 });
