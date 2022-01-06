@@ -222,6 +222,30 @@ $postInputFile.onchange = async e => {
   $uploadedPreview.src = url;
 };
 
+$editInputFile.onchange = async e => {
+  const uploadedFile = $editInputFile.files[0];
+  const formData = new FormData();
+  formData.append('img', uploadedFile);
+
+  const res = await fetch('/temporarilyUpload', {
+    method: 'POST',
+    // headers: { 'Content-Type': 'multipart/form-data' },
+    // body: JSON.stringify(formData)
+    body: formData,
+  });
+
+  const { success, file } = await res.json();
+
+  if (success) {
+    console.log('UPLOAD SUCCESS!', file);
+  }
+
+  const url = `/temporarySaved/${file.originalname}`;
+
+  const $uploadedPreview = $editForm.querySelector('.uploaded-image img');
+  $uploadedPreview.src = url;
+};
+
 $postForm.onsubmit = async e => {
   e.preventDefault();
 
