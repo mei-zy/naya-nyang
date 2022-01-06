@@ -9,7 +9,7 @@ const $editInputFile = document.querySelector('.edit-modal #upload');
 const $postDescription = document.querySelector('.post-modal .description');
 const $editDescription = document.querySelector('.edit-modal .description');
 const $btnContainer = document.querySelector('.btn-container');
-const $postInputHashtag = document.querySelector('.post-modal #tag');
+const $inputHashtags = [...document.querySelectorAll('#tag')];
 
 let cats = [];
 let currentFilter = 'all';
@@ -150,6 +150,7 @@ const closeModal = e => {
   e.target.closest('.modal').classList.add('hidden');
   e.target.closest('form').reset();
   e.target.closest('form').querySelector('.description').textContent = '';
+  e.target.closest('form').querySelector('.hashtags-list').innerHTML = ``;
 };
 
 $closeModals.forEach(closeButton => {
@@ -216,3 +217,13 @@ $editForm.onsubmit = async e => {
   closeModal(e);
   editCats(id, url, tempHashtags, content);
 };
+
+$inputHashtags.forEach($inputHash => {
+  $inputHash.onkeyup = e => {
+    if (e.code !== 'Space') return;
+    const $hashtagsList = e.target.closest('.modal').querySelector('.hashtags-list');
+
+    $hashtagsList.innerHTML += `<li class="hashtags-item">${e.target.value}</li>`;
+    e.target.value = '';
+  };
+});

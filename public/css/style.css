@@ -168,6 +168,14 @@ h2 {
   margin-bottom: 3%;
 }
 
+.hashtags-list {
+  display: flex;
+}
+
+.hashtags-item {
+  margin-right: 8px;
+}
+
 .close-modal {
   position: absolute;
   top: 5%;
