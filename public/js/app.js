@@ -189,6 +189,7 @@ const closeModal = e => {
   e.target.closest('form').reset();
   e.target.closest('form').querySelector('.description').textContent = '';
   e.target.closest('form').querySelector('.hashtags-list').innerHTML = '';
+  e.target.closest('form').querySelector('.uploaded-image img').src = 'img/image_blank.jpeg';
   hashtag.reset();
 };
 
@@ -196,10 +197,29 @@ $closeModals.forEach(closeButton => {
   closeButton.onclick = closeModal;
 });
 
-// $postInputFile.onchange = e => {
-//   const uploadedFile = $postInputFile.files[0];
-//   console.log(uploadedFile.mozFullPath);
-// };아
+$postInputFile.onchange = async e => {
+  const uploadedFile = $postInputFile.files[0];
+  const formData = new FormData();
+  formData.append('img', uploadedFile);
+
+  const res = await fetch('/temporarilyUpload', {
+    method: 'POST',
+    // headers: { 'Content-Type': 'multipart/form-data' },
+    // body: JSON.stringify(formData)
+    body: formData,
+  });
+
+  const { success, file } = await res.json();
+
+  if (success) {
+    console.log('UPLOAD SUCCESS!', file);
+  }
+
+  const url = `/temporarySaved/${file.originalname}`;
+
+  const $uploadedPreview = $postForm.querySelector('.uploaded-image img');
+  $uploadedPreview.src = url;
+};
 
 $postForm.onsubmit = async e => {
   e.preventDefault();
