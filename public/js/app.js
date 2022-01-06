@@ -1,16 +1,19 @@
 const $catsList = document.querySelector('.cats-list');
+
 const $postModal = document.querySelector('.post-modal');
 const $postForm = document.querySelector('.post-form');
 const $editForm = document.querySelector('.edit-form');
-const $closeModals = [...document.querySelectorAll('.close-modal')];
-const $editModal = document.querySelector('.edit-modal');
-const $postInputFile = document.querySelector('.post-modal #upload');
-const $editInputFile = document.querySelector('.edit-modal #upload');
 const $postDescription = document.querySelector('.post-modal .description');
+const $inputFiles = [...document.querySelectorAll('.upload-file input')];
+
+const $editModal = document.querySelector('.edit-modal');
 const $editDescription = document.querySelector('.edit-modal .description');
-const $btnContainer = document.querySelector('.btn-container');
-const $inputHashtags = [...document.querySelectorAll('input[type="text"]')];
+
+const $closeModals = [...document.querySelectorAll('.close-modal')];
 const $hashtagsLists = [...document.querySelectorAll('.hashtags-list')];
+const $inputHashtags = [...document.querySelectorAll('input[type="text"]')];
+
+const $btnContainer = document.querySelector('.btn-container');
 
 let cats = [];
 let currentFilter = 'all';
@@ -198,23 +201,17 @@ $closeModals.forEach(closeButton => {
   closeButton.onclick = closeModal;
 });
 
-$postInputFile.onchange = async e => {
-  const uploadedFile = $postInputFile.files[0];
+const previewFile = e => {
+  const uploadedFile = e.target.files[0];
+  const $uploadedImage = e.target.closest('.modal').querySelector('.uploaded-image img');
 
   const url = URL.createObjectURL(uploadedFile);
-
-  const $uploadedPreview = $postForm.querySelector('.uploaded-image img');
-  $uploadedPreview.src = url;
+  $uploadedImage.src = url;
 };
 
-$editInputFile.onchange = async e => {
-  const uploadedFile = $editInputFile.files[0];
-
-  const url = URL.createObjectURL(uploadedFile);
-
-  const $uploadedPreview = $editForm.querySelector('.uploaded-image img');
-  $uploadedPreview.src = url;
-};
+$inputFiles.forEach($inputFile => {
+  $inputFile.onchange = previewFile;
+});
 
 $postForm.onsubmit = async e => {
   e.preventDefault();
