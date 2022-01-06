@@ -15,6 +15,9 @@ body {
   background-color: #ecbb51;
   font-family: 'MaplestoryOTFLight', sans-serif;
 }
+i {
+  cursor: pointer;
+}
 .hidden {
   display: none;
 }
@@ -145,6 +148,9 @@ h2 {
 .nav-btn {
   margin: 0 20px;
   cursor: pointer;
+}
+.nav-btn:hover {
+  color: #ecbb51;
 }
 .team-info {
   margin-left: 10px;
