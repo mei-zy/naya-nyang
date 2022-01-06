@@ -222,7 +222,8 @@ h2 {
   overflow: hidden;
 }
 
-#tag {
+#post-tag,
+#edit-tag {
   background-color: #f8f7f7;
   color: black;
   outline: none;
@@ -233,7 +234,7 @@ h2 {
   margin-bottom: 3%;
 }
 
-#tag:focus {
+#post-tag:focus #edit-tag:focus {
   border-bottom: 1px solid black;
 }
 
