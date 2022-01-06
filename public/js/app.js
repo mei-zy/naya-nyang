@@ -10,6 +10,7 @@ const $postDescription = document.querySelector('.post-modal .description');
 const $editDescription = document.querySelector('.edit-modal .description');
 const $btnContainer = document.querySelector('.btn-container');
 const $inputHashtags = [...document.querySelectorAll('#tag')];
+const $hashtagsLists = [...document.querySelectorAll('.hashtags-list')];
 
 let cats = [];
 let currentFilter = 'all';
@@ -125,6 +126,10 @@ const hashtag = (() => {
 
     reset() {
       hashtags = [];
+    },
+
+    remove(toBeRemoved) {
+      hashtags = hashtags.filter(hash => hash !== toBeRemoved);
     },
 
     add(newHashtag) {
@@ -265,4 +270,17 @@ $inputHashtags.forEach($inputHash => {
 
     e.target.value = '';
   };
+});
+
+const removeHashtag = e => {
+  const $hashtagsList = e.target.closest('.hashtags-list');
+  hashtag.remove(e.target.textContent);
+  $hashtagsList.innerHTML = hashtag
+    .get()
+    .map(hash => `<li class="hashtags-item">${hash}</li>`)
+    .join('');
+};
+
+$hashtagsLists.forEach(hashtagList => {
+  hashtagList.onclick = removeHashtag;
 });
