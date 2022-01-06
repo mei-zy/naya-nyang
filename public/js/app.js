@@ -200,23 +200,8 @@ $closeModals.forEach(closeButton => {
 
 $postInputFile.onchange = async e => {
   const uploadedFile = $postInputFile.files[0];
-  const formData = new FormData();
-  formData.append('img', uploadedFile);
 
-  const res = await fetch('/temporarilyUpload', {
-    method: 'POST',
-    // headers: { 'Content-Type': 'multipart/form-data' },
-    // body: JSON.stringify(formData)
-    body: formData,
-  });
-
-  const { success, file } = await res.json();
-
-  if (success) {
-    console.log('UPLOAD SUCCESS!', file);
-  }
-
-  const url = `/temporarySaved/${file.originalname}`;
+  const url = URL.createObjectURL(uploadedFile);
 
   const $uploadedPreview = $postForm.querySelector('.uploaded-image img');
   $uploadedPreview.src = url;
@@ -224,23 +209,8 @@ $postInputFile.onchange = async e => {
 
 $editInputFile.onchange = async e => {
   const uploadedFile = $editInputFile.files[0];
-  const formData = new FormData();
-  formData.append('img', uploadedFile);
 
-  const res = await fetch('/temporarilyUpload', {
-    method: 'POST',
-    // headers: { 'Content-Type': 'multipart/form-data' },
-    // body: JSON.stringify(formData)
-    body: formData,
-  });
-
-  const { success, file } = await res.json();
-
-  if (success) {
-    console.log('UPLOAD SUCCESS!', file);
-  }
-
-  const url = `/temporarySaved/${file.originalname}`;
+  const url = URL.createObjectURL(uploadedFile);
 
   const $uploadedPreview = $editForm.querySelector('.uploaded-image img');
   $uploadedPreview.src = url;
@@ -313,7 +283,6 @@ $inputHashtags.forEach($inputHash => {
       .get()
       .map(hash => `<li class="hashtags-item">${hash}</li>`)
       .join('');
-
     e.target.value = '';
   };
 });
