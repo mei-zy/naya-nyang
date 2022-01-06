@@ -144,10 +144,12 @@ h2 {
 }
 .nav-btn {
   margin: 0 20px;
+  cursor: pointer;
 }
 .team-info {
   margin-left: 10px;
 }
+
 .btn-container {
   display: flex;
   justify-content: space-between;
@@ -178,7 +180,10 @@ h2 {
 
 .hashtags-list {
   display: flex;
-  flex-wrap: wrap;
+  white-space: nowrap;
+  width: 450px;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .hashtags-item {
@@ -237,6 +242,7 @@ h2 {
   color: #1c7cbe;
   margin-bottom: 10px;
 }
+
 .hashtags-list ::before {
   content: '\0023';
   margin-left: 3px;
