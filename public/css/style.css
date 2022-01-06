@@ -1,0 +1,277 @@
+@import url('./reset.css');
+@font-face {
+  font-family: 'MaplestoryOTFBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MaplestoryOTFLight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-color: #ecbb51;
+  font-family: 'MaplestoryOTFLight', sans-serif;
+}
+i {
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+.header {
+  margin-right: 50px;
+}
+.btn {
+  border: none;
+  background: transparent;
+}
+.cat-pattern-container {
+  padding-left: 60px;
+}
+.cat-pattern {
+  display: inline-block;
+  width: 30px;
+  height: 70px;
+  background-color: white;
+  border-radius: 0 0 30px 30px;
+  margin: 0 10px 0 10px;
+}
+
+.title {
+  color: white;
+  font-size: 3rem;
+  font-family: 'MaplestoryOTFBold', sans-serif;
+  text-align: right;
+  margin: 10px;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* 메인 영역 */
+.main-container {
+  background-color: white;
+  margin: 0 40px;
+  border-radius: 20px;
+  box-shadow: -1px -1px 5px rgba(60, 61, 61, 0.2);
+  padding: 30px 30px 130px 30px;
+}
+
+/* home container */
+.fas.fa-heart {
+  color: red;
+}
+.cats-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  justify-content: center;
+  align-items: center;
+  grid-gap: 20px;
+}
+
+.edit-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+}
+.hash-list {
+  margin: 10px 0;
+  color: #1c7cbe;
+}
+.hash-list span::before {
+  content: '\0023';
+  margin-left: 3px;
+}
+
+.card {
+  width: 100%;
+}
+.like {
+  border: none;
+  background: transparent;
+}
+.img-container {
+  width: 100%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.edit-del {
+  display: inline;
+  margin-top: 5px;
+}
+/* 하단 부분 */
+.menu {
+  background-color: #fff9ea;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 2;
+  width: 100vw;
+  height: 100px;
+  border-radius: 30px 30px 0 0;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+.logo-img {
+  width: 180px;
+}
+
+.info-container {
+  margin: 8px 0;
+}
+.info-title {
+  font-family: 'MaplestoryOTFBold', sans-serif;
+}
+
+.info-title::after {
+  content: ' |';
+}
+.nav-btn {
+  margin: 0 20px;
+  cursor: pointer;
+}
+.nav-btn:hover {
+  color: #ecbb51;
+}
+.team-info {
+  margin-left: 10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 100px;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  padding: 3%;
+  width: 500px;
+  min-height: 200px;
+  transform: translateX(-50%);
+  background-color: white;
+  box-shadow: -1px -1px 5px rgba(60, 61, 61, 0.2);
+  border-radius: 30px;
+}
+.modal h2 {
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-bottom: 3%;
+}
+
+.hashtags-list {
+  display: flex;
+  white-space: nowrap;
+  width: 450px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hashtags-item {
+  margin-right: 8px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.upload-file {
+  margin-bottom: 3%;
+}
+
+.uploaded-image {
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 3%;
+}
+
+.uploaded-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.modal label {
+  display: block;
+  overflow: hidden;
+}
+
+#post-tag,
+#edit-tag {
+  background-color: #f8f7f7;
+  color: black;
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  font-size: 0.8rem;
+  margin-bottom: 3%;
+}
+
+#post-tag:focus #edit-tag:focus {
+  border-bottom: 1px solid black;
+}
+
+/* 모달창 내 해시태그 */
+.hashtags-item {
+  color: #1c7cbe;
+  margin-bottom: 10px;
+}
+
+.hashtags-list ::before {
+  content: '\0023';
+  margin-left: 3px;
+}
+
+.modal .description {
+  border: 1px solid #c4c4c4;
+  margin-bottom: 3%;
+  width: 100%;
+  height: 6vh;
+  overflow: hidden;
+}
+
+.submit-btn {
+  font-family: 'MaplestoryOTFBold', sans-serif;
+  background-color: #ecbb51;
+  border: none;
+  /* margin-bottom: 5%; */
+  width: 100%;
+  padding: 2%;
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
