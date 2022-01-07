@@ -211,10 +211,7 @@ $inputFiles.forEach($inputFile => {
   };
 });
 
-$postForm.onsubmit = async e => {
-  e.preventDefault();
-
-  const uploadedFile = e.target.querySelector('.upload-file input').files[0];
+const uploadImage = async uploadedFile => {
   const formData = new FormData();
   formData.append('img', uploadedFile);
 
@@ -229,6 +226,13 @@ $postForm.onsubmit = async e => {
   if (success) {
     console.log('UPLOAD SUCCESS!', file);
   }
+  return file;
+};
+
+$postForm.onsubmit = async e => {
+  e.preventDefault();
+  const uploadedFile = e.target.querySelector('.upload-file input').files[0];
+  const file = await uploadImage(uploadedFile);
 
   const url = `/img/${file.originalname}`;
   const hashtags = hashtag.get();
@@ -243,20 +247,7 @@ $editForm.onsubmit = async e => {
   e.preventDefault();
 
   const uploadedFile = e.target.querySelector('.upload-file input').files[0];
-  const formData = new FormData();
-  formData.append('img', uploadedFile);
-
-  const res = await fetch('/upload', {
-    method: 'POST',
-    // headers: { 'Content-Type': 'multipart/form-data' },
-    // body: JSON.stringify(formData)
-    body: formData,
-  });
-  const { success, file } = await res.json();
-
-  if (success) {
-    console.log('UPLOAD SUCCESS!', file);
-  }
+  const file = await uploadImage(uploadedFile);
 
   const { id } = e.target.closest('.modal').dataset;
   const { url: prevUrl } = cats.find(cat => cat.id === +id);
