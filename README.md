@@ -55,3 +55,5 @@
 - CSS
 - Javascript
 - axios
+- node.js
+- express
