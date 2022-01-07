@@ -1,16 +1,19 @@
 const $catsList = document.querySelector('.cats-list');
+
 const $postModal = document.querySelector('.post-modal');
 const $postForm = document.querySelector('.post-form');
 const $editForm = document.querySelector('.edit-form');
-const $closeModals = [...document.querySelectorAll('.close-modal')];
-const $editModal = document.querySelector('.edit-modal');
-const $postInputFile = document.querySelector('.post-modal #upload');
-const $editInputFile = document.querySelector('.edit-modal #upload');
 const $postDescription = document.querySelector('.post-modal .description');
+const $inputFiles = [...document.querySelectorAll('.upload-file input')];
+
+const $editModal = document.querySelector('.edit-modal');
 const $editDescription = document.querySelector('.edit-modal .description');
-const $btnContainer = document.querySelector('.btn-container');
-const $inputHashtags = [...document.querySelectorAll('input[type="text"]')];
+
+const $closeModals = [...document.querySelectorAll('.close-modal')];
 const $hashtagsLists = [...document.querySelectorAll('.hashtags-list')];
+const $inputHashtags = [...document.querySelectorAll('input[type="text"]')];
+
+const $btnContainer = document.querySelector('.btn-container');
 
 let cats = [];
 let currentFilter = 'all';
@@ -198,28 +201,17 @@ $closeModals.forEach(closeButton => {
   closeButton.onclick = closeModal;
 });
 
-$postInputFile.onchange = async e => {
-  const uploadedFile = $postInputFile.files[0];
+$inputFiles.forEach($inputFile => {
+  $inputFile.onchange = ({ target }) => {
+    const uploadedFile = target.files[0];
+    const $uploadedImage = target.closest('.modal').querySelector('.uploaded-image img');
 
-  const url = URL.createObjectURL(uploadedFile);
+    const url = URL.createObjectURL(uploadedFile);
+    $uploadedImage.src = url;
+  };
+});
 
-  const $uploadedPreview = $postForm.querySelector('.uploaded-image img');
-  $uploadedPreview.src = url;
-};
-
-$editInputFile.onchange = async e => {
-  const uploadedFile = $editInputFile.files[0];
-
-  const url = URL.createObjectURL(uploadedFile);
-
-  const $uploadedPreview = $editForm.querySelector('.uploaded-image img');
-  $uploadedPreview.src = url;
-};
-
-$postForm.onsubmit = async e => {
-  e.preventDefault();
-
-  const uploadedFile = $postInputFile.files[0];
+const uploadImage = async uploadedFile => {
   const formData = new FormData();
   formData.append('img', uploadedFile);
 
@@ -234,6 +226,13 @@ $postForm.onsubmit = async e => {
   if (success) {
     console.log('UPLOAD SUCCESS!', file);
   }
+  return file;
+};
+
+$postForm.onsubmit = async e => {
+  e.preventDefault();
+  const uploadedFile = e.target.querySelector('.upload-file input').files[0];
+  const file = await uploadImage(uploadedFile);
 
   const url = `/img/${file.originalname}`;
   const hashtags = hashtag.get();
@@ -247,21 +246,8 @@ $postForm.onsubmit = async e => {
 $editForm.onsubmit = async e => {
   e.preventDefault();
 
-  const uploadedFile = $editInputFile.files[0];
-  const formData = new FormData();
-  formData.append('img', uploadedFile);
-
-  const res = await fetch('/upload', {
-    method: 'POST',
-    // headers: { 'Content-Type': 'multipart/form-data' },
-    // body: JSON.stringify(formData)
-    body: formData,
-  });
-  const { success, file } = await res.json();
-
-  if (success) {
-    console.log('UPLOAD SUCCESS!', file);
-  }
+  const uploadedFile = e.target.querySelector('.upload-file input').files[0];
+  const file = await uploadImage(uploadedFile);
 
   const { id } = e.target.closest('.modal').dataset;
   const { url: prevUrl } = cats.find(cat => cat.id === +id);
@@ -287,15 +273,13 @@ $inputHashtags.forEach($inputHash => {
   };
 });
 
-const removeHashtag = e => {
-  const $hashtagsList = e.target.closest('.hashtags-list');
-  hashtag.remove(e.target.textContent);
-  $hashtagsList.innerHTML = hashtag
-    .get()
-    .map(hash => `<li class="hashtags-item">${hash}</li>`)
-    .join('');
-};
-
 $hashtagsLists.forEach(hashtagList => {
-  hashtagList.onclick = removeHashtag;
+  hashtagList.onclick = ({ target }) => {
+    const $hashtagsList = target.closest('.hashtags-list');
+    hashtag.remove(target.textContent);
+    $hashtagsList.innerHTML = hashtag
+      .get()
+      .map(hash => `<li class="hashtags-item">${hash}</li>`)
+      .join('');
+  };
 });
